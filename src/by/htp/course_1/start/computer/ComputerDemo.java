@@ -1,6 +1,6 @@
 package by.htp.course_1.start.computer;
 
-public class Main {
+public class ComputerDemo {
 
     public static void main(String[] args) {
         Computer asus = new Computer();
@@ -24,5 +24,12 @@ public class Main {
         toshiba.off();
 
         Computer.printModel();
+
+        Notebook notebook = new Notebook("Mac", new Hdd(4096), new Ram(8192));
+        notebook.on();
+        notebook.load();
+        notebook.off();
+
+        System.out.println(notebook);
     }
 }
