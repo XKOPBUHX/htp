@@ -6,7 +6,16 @@ public class Notebook extends Computer {
     }
 
     @Override
+    public void on() {
+        System.out.println("Ноутбук " + getName() + " включился");
+    }
+
+    @Override
     public String toString() {
-        return getName() + ". RAM: " + getRam().getMemory() + ". HDD " + getHdd().getCapacity();
+        return "Notebook: " + getName();
+    }
+
+    public void open() {
+        System.out.println("Крышка открыта");
     }
 }
