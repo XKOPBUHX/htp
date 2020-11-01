@@ -1,12 +1,10 @@
 package by.htp.course_1.start.computer;
 
-public class Computer {
+public abstract class Computer implements Loadable, Verifiable {
 
-    private static final String MODEL_NUMBER = "it's static field";
-
-    private String name;
-    private Hdd hdd;
-    private Ram ram;
+    protected String name;
+    protected Hdd hdd;
+    protected Ram ram;
 
     public Computer() {
 
@@ -44,21 +42,15 @@ public class Computer {
         this.ram = ram;
     }
 
-
-    public static void printModel() {
-        System.out.println(MODEL_NUMBER);
-    }
-
-    public void on() {
-        System.out.println(name + " включился");
-    }
-
+    @Override
     public void load() {
-        System.out.println("я загрузился");
+        System.out.println("Загрузился");
         System.out.println("Ram: " + ram.getMemory() + ". Hdd: " + hdd.getCapacity());
     }
 
     public void off() {
-        System.out.println("я выключился");
+        System.out.println("Выключился");
     }
+
+    public abstract void on();
 }

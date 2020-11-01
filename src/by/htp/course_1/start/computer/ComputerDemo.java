@@ -4,9 +4,10 @@ public class ComputerDemo {
 
     public static void main(String[] args) {
 
-        Computer.printModel();
+        Pc.printModel();
+        System.out.println();
 
-        Computer asus = new Computer();
+        Pc asus = new Pc();
         asus.setName("Asus");
         Hdd hdd = new Hdd(512);
         asus.setHdd(hdd);
@@ -16,7 +17,7 @@ public class ComputerDemo {
 
         Hdd toshibaHdd = new Hdd(1024);
         Ram toshibaRam = new Ram(1024);
-        Computer toshiba = new Computer("Toshiba", toshibaHdd, toshibaRam);
+        Computer toshiba = new Pc("Toshiba", toshibaHdd, toshibaRam);
         diagnose(toshiba);
 
         Notebook notebook = new Notebook("Mac", new Hdd(4096), new Ram(8192));

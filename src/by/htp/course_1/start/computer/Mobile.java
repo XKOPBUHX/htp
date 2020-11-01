@@ -1,6 +1,7 @@
 package by.htp.course_1.start.computer;
 
 public class Mobile extends Computer {
+
     public Mobile(String name, Hdd hdd, Ram ram) {
         super(name, hdd, ram);
     }
@@ -8,6 +9,11 @@ public class Mobile extends Computer {
     @Override
     public void on() {
         System.out.println("Мобильный телефон " + getName() + " включился");
+    }
+
+    @Override
+    public boolean check() {
+        return false;
     }
 
     @Override
