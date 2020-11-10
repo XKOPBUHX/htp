@@ -1,11 +1,10 @@
 package by.htp.course_1.start.battleHeroes.battle;
 
-import by.htp.course_1.start.battleHeroes.model.classes.Archer;
-import by.htp.course_1.start.battleHeroes.model.classes.Buffer;
-import by.htp.course_1.start.battleHeroes.model.classes.Warrior;
-import by.htp.course_1.start.battleHeroes.model.Character;
-import by.htp.course_1.start.battleHeroes.model.Faction;
-import by.htp.course_1.start.battleHeroes.model.Race;
+import by.htp.course_1.start.battleHeroes.characters.Characters;
+import by.htp.course_1.start.battleHeroes.characters.Faction;
+import by.htp.course_1.start.battleHeroes.characters.Race;
+import by.htp.course_1.start.battleHeroes.characters.classes.*;
+import by.htp.course_1.start.battleHeroes.weapon.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +12,11 @@ import java.util.Random;
 
 public class BattleGround {
     public static void main(String[] args) {
-        List<Character> characters = fillCharacters();
+        List<Characters<?>> characters = fillCharacters();
         while (characters.size() > 1) {
             Random rand = new Random();
-            Character attacker = characters.get(rand.nextInt(characters.size()));
-            Character defender = characters.get(rand.nextInt(characters.size()));
+            Characters<?> attacker = characters.get(rand.nextInt(characters.size()));
+            Characters<?> defender = characters.get(rand.nextInt(characters.size()));
             if (!attacker.equals(defender)) {
                 attacker.attack(defender);
                 if (!defender.isAlive()) {
@@ -28,13 +27,33 @@ public class BattleGround {
         System.out.println("========\nПобедитель: " + characters.get(0));
     }
 
-    private static List<Character> fillCharacters() {
-        List<Character> characters = new ArrayList<>();
-        characters.add(new Archer("Леголас", Race.LIGHT_ELF, Faction.HERO, 50, 70));
-        characters.add(new Archer("Дьюк", Race.DARK_ELF, Faction.VILLAIN, 40, 80));
-        characters.add(new Buffer("Макс", Race.HUMAN, Faction.HERO, 50, 5));
-        characters.add(new Buffer("Темный Макс", Race.ORC, Faction.VILLAIN, 70, 25));
-        characters.add(new Warrior("Тинки", Race.GNOME, Faction.HERO, 80, 50));
+    private static List<Characters<?>> fillCharacters() {
+        List<Characters<?>> characters = new ArrayList<>();
+
+        Archer<Bow> archer = new Archer<>("Леголас", Race.LIGHT_ELF, Faction.HERO, 50, 70);
+        archer.setWeapon(new Bow());
+        characters.add(archer);
+
+        Mage<Staff> mage = new Mage<>("Дьюк", Race.DARK_ELF, Faction.VILLAIN, 40, 80);
+        mage.setWeapon(new Staff());
+        characters.add(mage);
+
+        Summoner<Staff> summoner = new Summoner<>("Макс", Race.HUMAN, Faction.HERO, 50, 5);
+        summoner.setWeapon(new Staff());
+        characters.add(summoner);
+
+        Buffer<Staff> buffer = new Buffer<>("Темный Макс", Race.ORC, Faction.VILLAIN, 70, 25);
+        buffer.setWeapon(new Staff());
+        characters.add(buffer);
+
+        Warrior<Sword> warrior = new Warrior<>("Тинки", Race.GNOME, Faction.HERO, 80, 50);
+        warrior.setWeapon(new Sword());
+        characters.add(warrior);
+
+        Tank<Axe> tank = new Tank<>("Винки", Race.GNOME, Faction.HERO, 80, 50);
+        tank.setWeapon(new Axe());
+        characters.add(tank);
+
         return characters;
     }
 }

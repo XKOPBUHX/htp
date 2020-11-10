@@ -1,8 +1,8 @@
 package by.htp.course_1.start.points;
 
 public class Rectangle {
-    private Point upperLeftCorner;
-    private Point lowerRightCorner;
+    private final Point upperLeftCorner;
+    private final Point lowerRightCorner;
 
     public Rectangle(Point upperLeftCorner, Point lowerRightCorner) {
         this.upperLeftCorner = upperLeftCorner;

@@ -1,39 +1,25 @@
 package by.htp.course_1.start.battleHeroes.other;
 
-import by.htp.course_1.start.battleHeroes.model.Gender;
+import by.htp.course_1.start.battleHeroes.characters.Faction;
+import by.htp.course_1.start.battleHeroes.characters.Gender;
+import by.htp.course_1.start.battleHeroes.characters.Race;
+import by.htp.course_1.start.battleHeroes.characters.classes.Warrior;
+import by.htp.course_1.start.battleHeroes.dungeon.MeleeDungeon;
+import by.htp.course_1.start.battleHeroes.weapon.Sword;
 
 public class TechnologyTest {
     public static void main(String[] args) {
-       /* deathTrap(new Mortal() {
-            @Override
-            public boolean isAlive() {
-                return false;
-            }
+        printGenderData(Gender.MALE);
 
-            @Override
-            public void kill() {
-                System.out.println("Приманка попадает в ловушку");
-            }
-        });
+        Warrior<Sword> warrior = new Warrior<>("test", Race.DARK_ELF, Faction.HERO, 100, 20);
+        warrior.setWeapon(new Sword());
+        Sword weapon = warrior.getWeapon();
+        System.out.println(weapon.getDamage());
 
-        deathTrap(new Hero("Временный герой", 10, 10) {
-            @Override
-            public void attackEnemy(Enemy enemy) {
-                System.out.println(getName() + " пытается атаковать врага");
-            }
-        });
-
-        printGenderData(Gender.MALE);*/
-    }
-
-    public static void deathTrap(Character character) {
-        /*if (mortal instanceof Hero) {
-            ((Hero) mortal).attackEnemy(new Enemy("Временный враг", 10, 10));
-        }
-        mortal.kill();*/
+        MeleeDungeon.embarkOnQuest(warrior);
     }
 
     public static void printGenderData(Gender gender) {
-        //System.out.println(gender.getDescription());
+        System.out.println(gender);
     }
 }

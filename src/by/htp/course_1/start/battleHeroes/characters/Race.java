@@ -1,4 +1,4 @@
-package by.htp.course_1.start.battleHeroes.model;
+package by.htp.course_1.start.battleHeroes.characters;
 
 public enum Race {
     HUMAN("Человек"),
@@ -8,7 +8,7 @@ public enum Race {
     GNOME("Гном"),
     UNDEAD("Нежить");
 
-    private String title;
+    private final String title;
 
     Race(String title) {
         this.title = title;
